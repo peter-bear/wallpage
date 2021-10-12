@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页面</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        *{
+            cursor: url("mouse.ani"), auto;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="upper">
+        <!--<img src="./images/upperPic.png" alt="">-->
+        <span id="nowTime"></span>
+    </div>
+
+    <div class="middle">
+        <form action="https://www.baidu.com/s">
+            <input type="text" name="wd" value="请输入网址........" autocomplete ="off">
+        </form>
+    </div>
+
+    <div class="bottom clearfix">
+        <ul>
+            <li>
+                <a href="https://mail.qq.com/cgi-bin/loginpage">
+                    <div class="icons"><img src="./images/game_azurlane.png" alt=""></div>
+                    <div class="urls">QQ邮箱</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.runoob.com">
+                    <div class="icons"><img src="./images/terminal_emulator.png" alt=""></div>
+                    <div class="urls">菜鸟教程</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.aigei.com">
+                    <div class="icons"><img src="./images/picacomic.png" alt=""></div>
+                    <div class="urls">素材网</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.runoob.com/manual/jdk1.6">
+                    <div class="icons"><img src="./images/game_zjsn.png" alt=""></div>
+                    <div class="urls">JAVA api</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://b-ok.cc">
+                    <div class="icons"><img src="./images/game_cywl.png" alt=""></div>
+                    <div class="urls">Z-Library</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.dm530p.cc">
+                    <div class="icons"><img src="./images/mimikkoui.png" alt=""></div>
+                    <div class="urls">动漫</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://moodle.rose-hulman.edu/login/index.php">
+                    <div class="icons"><img src="./images/moe_bai.png" alt=""></div>
+                    <div class="urls">Moodle</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://outlook.office.com/mail/inbox">
+                    <div class="icons"><img src="./images/microsoft_outlook.png" alt=""></div>
+                    <div class="urls">邮箱</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="videoBorder">
+        <video autoplay loop>
+            <source src="./background.mp4">
+        </video>
+    </div>
+  
+    
+
+    <script src="./index.js"></script>
+    <script type="text/javascript">
+        var newDate = '';
+        getLangDate();
+        function dateFilter(date){ //值小于10时，在前面补0
+            if(date < 10){
+                return "0"+date;
+            }
+            return date;
+        }
+    
+        function getLangDate(){
+            var dateObj = new Date(); //表示当前系统时间的Date对象
+            
+            var hour = dateObj.getHours(); //当前系统时间的小时值
+            var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+            var second = dateObj.getSeconds(); //当前系统时间的秒钟值
+            var timeValue = "" +((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午" ); //当前时间属于上午、晚上还是下午
+            newDate = dateFilter(hour)+":"+dateFilter(minute)
+            document.getElementById("nowTime").innerText = newDate;
+            setTimeout(getLangDate,1000);
+        }
+    </script>
+</body>
+</html>
